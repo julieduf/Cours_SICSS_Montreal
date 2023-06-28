@@ -30,3 +30,70 @@ Cet exercice de groupe est destiné à trouver un équilibre entre la pratique d
 
 4. Présentez un modèle de recherche hybride (par exemple, une application ou un robot, une enquête en ligne supplémentaire ou d'autres méthodes qualitatives) qui pourrait être utilisé pour remédier aux faiblesses des données que vous avez collectées ou pour améliorer votre capacité à répondre à la question de recherche.
 
+```{r}
+#Installation des paquets
+packages <- c(
+  "rvest", "httr", "dplyr", "tibble", "glue", "readr", "tidyr",
+  "lubridate", "httr", "janitor", "purrr"
+)
+
+for (package in packages) {
+  if (!requireNamespace(package, quietly = TRUE)) {
+    install.packages(package)
+  }
+  library(package, character.only = TRUE)
+}
+
+library(rvest)
+
+#Définir l'url
+url <- "https://registredesloyers.quebec/fr"
+
+#examiner page robots.txt - https://registredesloyers.quebec/fr/robots.txt - la page n'existe pas
+
+registre_loyer <- read_html("https://registredesloyers.quebec/fr")
+
+parsed_html <- read_html(url)
+
+registre_loyer <- read_html("https://registredesloyers.quebec/fr")
+Adresses <- registre_loyer |>
+  html_nodes(css = ".js-housing-address") |>
+  html_text2()
+Adresses
+
+<span class="js-housing-address">1321 Boul Graham, Mont-Royal</span>
+
+Titres <- parsed_html2 |>
+  html_nodes(".meta-title-link") |>
+  html_text()
+.c-map-housing-card__title , .js-housing-appartment , .js-housing-address
+
+Prix <- registre_loyer |>
+  html_nodes(".c-map-tags__item-content") |>
+  html_text()
+
+Chambre <- registre_loyer |>
+  html_nodes(".c-map-housing-info__item:nth-child(1)") |>
+  html_text()
+
+results <- tibble(
+  Adresse = Adresse,
+  Prix = Prix,
+  Chambre = Chambre
+)
+
+results
+
+adresse
+.c-map-housing-card__title
+
+prix
+.c-map-tags__item-content
+
+année
+.c-map-housing-info__item+ .c-map-housing-info__item
+
+chambre
+.c-map-housing-info__item:nth-child(1)
+```
+

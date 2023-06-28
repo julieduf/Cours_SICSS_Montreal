@@ -552,8 +552,8 @@ En utilisant les informations du tableau sur la population mondiale, calculer le
 # A partir d'un vecteur
 
 population
-croissane <- population[-1] / population[-7]
-croissane 
+croissance <- population[-1] / population[-7]
+croissance 
 
 ```
 

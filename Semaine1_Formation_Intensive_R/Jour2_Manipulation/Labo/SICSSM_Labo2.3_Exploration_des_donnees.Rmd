@@ -45,7 +45,7 @@ library(summarytools)
 
 ```{r}
 
-crsc96 <- read_csv("../Données/cora-crsc1996-E-1996_F1.csv")
+crsc96 <- read_csv("/Volumes/Transcend/SICSS2023/Cours_SICSS_Montreal/Semaine1_Formation_Intensive_R/Jour2_Manipulation/Données/cora-crsc1996-E-1996_F1.csv")
 
 ```
 
@@ -165,8 +165,6 @@ freq(crsc96$q1)
 freq(crsc96$region)
 freq(crsc96$q44)
 freq(crsc96$q95)
-
-freq
 ```
 
 
@@ -175,7 +173,7 @@ Paramètres de tendances centrales et de dispersion
 
 ## Avec base R
 
-La commande summary nous donne une premieère indication sur l'ensemble des variables de notre base de données.
+La commande summary nous donne une première indication sur l'ensemble des variables de notre base de données.
 Il faut préter attention aux variables manquantes.
 
 ```{r}
@@ -257,7 +255,7 @@ ggplot(crsc96_small) +
   geom_vline(aes(xintercept = mean(age)), color = "red") +
   geom_vline(aes(xintercept = median(age)), color = "blue") +
   geom_vline(aes(xintercept = getmode(age)), color = "white") 
-  
+
 ```
 
 On reviendra sur le cours prochain sur la visualisation, l'une des forces de tidyverse.

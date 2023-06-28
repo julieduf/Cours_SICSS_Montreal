@@ -50,6 +50,15 @@ Lire l'introduction à la [poststratification](https://github.com/compsocialscie
 1.	Après la collecte des données, valider l'enquête et payer les travailleurs MTurk (15 minutes).
 
 -	Téléchargez le CSV des réponses à partir de Google Forms.
+```{r}
+library(readr)
+X2020_06_clean_mturk_data <-
+  read_csv("/Volumes/Transcend/SICSS2023/Cours_SICSS_Montreal/Semaine2_Formation_CSS/Jour4.2_Enquetes_ere_digitale/Données/2020_06_clean_mturk_data.csv")
+View(X2020_06_clean_mturk_data)
+pew_benchmark_question_source_sicss_2020 <-read_csv("/Volumes/Transcend/SICSS2023/Cours_SICSS_Montreal/Semaine2_Formation_CSS/Jour4.2_Enquetes_ere_digitale/Données/pew_benchmark_question_source_sicss_2020.csv")
+View(pew_benchmark_question_source_sicss_2020)
+```
+
 -	Vérifiez que tous vos travailleurs MTurk ont effectivement participé à l'enquête en comparant la liste des identifiants des travailleurs fournie dans les données de l'enquête avec les identifiants des travailleurs enregistrés par la plateforme MTurk. [2]
 -	Supprimez les réponses qui ne répondent pas aux critères de vérification de l'attention.
 -	Payez les travailleurs MTurk qui ont répondu aux enquêtes. En cas de doute sur la question de savoir s'il faut payer ou non, privilégiez le paiement des travailleurs.

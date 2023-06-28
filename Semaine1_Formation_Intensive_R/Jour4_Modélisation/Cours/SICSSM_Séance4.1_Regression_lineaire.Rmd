@@ -58,7 +58,7 @@ Nom             Description
 rm(list = ls())
 
 library(tidyverse)
-dhs_ipv <- read_csv("../Données/dhs_ipv.csv")
+dhs_ipv <- read_csv("/Volumes/Transcend/SICSS2023/Cours_SICSS_Montreal/Semaine1_Formation_Intensive_R/Jour4_Modélisation/Données/dhs_ipv.csv")
 
 ```
 

@@ -16,32 +16,105 @@ Vous travaillez avec la base de données `weight.dta` pour analyser le détermin
 
 REmarque: faite atention à l'extension de la base de données et utiliser la commande appropriée pour la charger.
 
+```{r}
+library(haven)
+weight <- read_dta("/Volumes/Transcend/SICSS2023/Cours_SICSS_Montreal/Semaine1_Formation_Intensive_R/Jour4_Modélisation/Données/weight.dta")
+View(weight)
+library(tidyverse)
+
+w_small <-
+  weight |> 
+  select(v012, m19, b4, v106, v717) |> 
+  filter(m19 < 9000)
+```
+
 ## Question 0
 
 - Quelle est la nature des variables m19 et v012?
+```{r}
+class(w_small$m19)
+class(w_small$v012)
+
+w_small <-
+  w_small |>  
+  mutate(age = v012,
+         poids = m19,
+         sexe = b4,
+         educ = v106,
+         occup = v717)
+
+```
+
 - Représenter graphiquement la relation entre les variables m19 et v012.
+```{r}
+freq(w_small$age)
+freq(w_small$poids)
+
+hist()
+ggplot(w_small) +
+   geom_point(aes(x = age, y = poids)) +
+  geom_smooth(aes(x = age, y = poids), method = "lm", se = FALSE, size = .5)
+```
+
 
 ##Question 1
 
 Exécutez la régression linéaire suivante:
   - Variable dépendante: poids à la naissance (m19)
-  - Variable indépendante: âge actuel des femmes (v012)
+    - Variable indépendante: âge actuel des femmes (v012)
+```{r}
+  reg1 <- lm(poids~age, w_small)
+summary(reg1)
+
+stargazer(reg0, reg1, title = regression)
+
+#standardiser car l'intercept ne fait pas de sens, une femme ne peut pas donner naissance à l'âge zéro. le fait de standardiser met l'intercept sur la moyenne de l'âge
+```
+  
+
+
 
 ## Question 2
 
 Calculez le poids de naissance prédit, nommé p_weight
 
+```{r}
+w_small <-
+  w_small |> 
+  mutate(p_weight = 2957.693 + 9.194*age)
+
+w_small <-
+  w_small |> 
+  mutate(p_weight = reg1$fitted.values)
+```
+
+
 ## Question 3
 
 Comment interprétez-vous ce résultat?
+
+```{r}
+#le poids à la naissance augmente avec l'âge de la mère de 29,62 par unité (1 an)
+```
+
 
 ## Question 4 
 
 Présentez dans le même graphique le nuage de points de m19 et v012 et la droite de régression.
 
+```{r}
+ggplot(w_small) +
+   geom_point(aes(x = age, y = poids)) +
+  geom_jitter(alpha = 0.4) + # pour décaler les points
+  geom_smooth(aes(x = age, y = poids), method = "lm", se = FALSE, size = .5)
+```
+
+
 ## Question 5 
 
 Un de vos amis pense que l’effet de l’âge actuel des femmes sur le poids à la naissance est trop faible. Quel est le problème avec la variable âge des femmes?
+
+
 
 ##Question 6 
 

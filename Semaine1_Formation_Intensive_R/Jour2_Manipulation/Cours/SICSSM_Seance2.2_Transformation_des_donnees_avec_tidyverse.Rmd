@@ -97,20 +97,20 @@ base_classe[1, "nom"]
 base_classe[, "nom"]
 base_classe["nom"]
 base_classe["age2"] <- base_classe["age"]*2
-
+base_classe
 ```
 
 ## Quelle est la classe des éléments de cette base de données?
 
 ```{r}
 
-class(base_classe$nom)        # factor
-class(base_classe$sexe)       # factor
+class(base_classe$nom)        # character
+class(base_classe$sexe)       # character
 class(base_classe$sexe01)         # numeric
 class(base_classe$sexefactor)     # factor
 class(base_classe$revenu)         # numeric
 class(base_classe$age)            # numeric
-class(base_classe$education)      # numeric
+class(base_classe$education)      # character
 
 ```
 
@@ -168,7 +168,7 @@ Maintenant, il faut charger les données que vous voulez utiliser dans R. Ici, o
 
 ```{r}
 
-crsc96 <- read_csv("../Données/cora-crsc1996-E-1996_F1.csv")
+crsc96 <- read_csv("/Volumes/Transcend/SICSS2023/Cours_SICSS_Montreal/Semaine1_Formation_Intensive_R/Jour2_Manipulation/Données/cora-crsc1996-E-1996_F1.csv")
 
 ```
 
@@ -614,7 +614,10 @@ crsc96_small <-
   crsc96_small %>% 
   mutate(var1 = lead(age, n = 2),                    # Remplace var la valeur de rang 2
          var2 = lag(age, n = 1))                 
-
+freq(crsc96_small$age)
+?lead
+lag(1:5)
+lead(1:5)
 ```
 
 ## Exercices

@@ -145,7 +145,7 @@ UNpop$world.pop[seq(from = 1, to = nrow(UNpop), by = 2)]
 ```{r}
 
 UNpop$taux <- UNpop$world.pop / UNpop$world.pop[1]
-head(UNpop)
+head(UNpop, 10)
 
 ```
 - Quand vous voulez créer une nouvelle variable qui fait appel à plusieurs calculs, créer des variables intermédiaires.
@@ -169,7 +169,7 @@ pop_totale
 
 ```{r}
 
-pop_moyenne <- pop_totale / 6
+pop_moyenne <- pop_totale / 7
 pop_moyenne
 
 pop_moyenne1 <- mean(UNpop$world.pop)

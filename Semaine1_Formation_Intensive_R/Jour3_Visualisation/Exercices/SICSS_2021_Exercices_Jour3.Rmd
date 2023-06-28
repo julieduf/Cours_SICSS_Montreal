@@ -13,7 +13,24 @@ Vous utiliserez le fichier de données **mig** et **hdi** fourni sous format **.
 
 1. Importer le fichier **mig.csv** dans RStudio.
 
+```{r}
+library(tidyverse)
+mig <- read_csv("/Volumes/Transcend/SICSS2023/Cours_SICSS_Montreal/Semaine1_Formation_Intensive_R/Jour3_Visualisation/Données/mig.csv")
+View(mig)
+```
+
+
 2. Créer un graphique à bandes empilées représentant la fréquence par province et territoires (**location**) selon le type de migration (**type**). Colorier les bandes selon le type de migration, labéliser convenablement les axes et donner un titre au graphique.
+
+```{r}
+ggplot(mig) + 
+  geom_bar(aes(y = location, fill = type)) +
+  labs(title = "Fréquence par province et territoires selon le type de migration",
+       x = "Fréquences",
+       y = "Province et territoires") +
+  theme(legend.position = "bottom", legend.direction = "horizontal")
+```
+
 
 ## Exercice 2
 

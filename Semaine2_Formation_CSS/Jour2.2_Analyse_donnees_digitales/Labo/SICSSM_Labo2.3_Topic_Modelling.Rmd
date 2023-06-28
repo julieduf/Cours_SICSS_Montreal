@@ -25,9 +25,9 @@ library(topicmodels)
 
 ```{r}
 
-#load(url("https://cbail.github.io/Trump_Tweets.Rdata"))
+load(url("https://cbail.github.io/Trump_Tweets.Rdata"))
 
-trumptweets <- readRDS("../Données/trumptweets.Rdata")
+trumptweets <- readRDS("/Volumes/Transcend/SICSS2023/Cours_SICSS_Montreal/Semaine2_Formation_CSS/Jour2.2_Analyse_donnees_digitales/Données/trumptweets.Rdata")
 
 
 tidy_trump_tweets <- 

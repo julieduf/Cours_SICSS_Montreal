@@ -49,7 +49,7 @@ library(summarytools)
 
 ```{r}
 
-crsc96 <- read_csv("../Données/cora-crsc1996-E-1996_F1.csv")
+crsc96 <- read_csv("/Volumes/Transcend/SICSS2023/Cours_SICSS_Montreal/Semaine1_Formation_Intensive_R/Jour2_Manipulation/Données/cora-crsc1996-E-1996_F1.csv")
 
 ```
 
@@ -231,7 +231,7 @@ Il n'y a aucune fonction qui permet de calculer directement le mode. Alors, il f
 
 getmode <- function(v) {
    uniqv <- unique(v)
-   uniqv[which.max(tabulate(match(v, uniqv)))]
+   uniqv[which.max(tabulate(match(v, uniqv)))] # pour obtenir le mode
 }
 
 
@@ -240,7 +240,7 @@ age_position <-
   summarise(age_moyen = mean(age),
             age_median = median(age),
             age_Q1 = quantile(age, prob = 0.25),
-            age_Q1 = quantile(age, prob = 0.75),
+            age_Q3 = quantile(age, prob = 0.75),
             age_mode = getmode(age))
 
 age_position
@@ -316,6 +316,19 @@ Le problème, c'est la longueur du fichier.
 ## EXERCICE
 
 Calculer les paramètres de dispersion de la variable age et commenter.
+
+```{r}
+age_reponse <- 
+  crsc96_small %>% 
+  summarise(age_moyen = mean(age),
+            age_median = median(age),
+            age_Q1 = quantile(age, prob = 0.25),
+            age_Q3 = quantile(age, prob = 0.75),
+            age_mode = getmode(age))
+age_reponse
+```
+
+L'age mode est beaucoup plus bas que la moyenne et la médiane d'âge.
 
 ## Application  1: Données abbérantes ou extrêmes
 

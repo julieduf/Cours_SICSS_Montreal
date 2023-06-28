@@ -416,7 +416,23 @@ top_word <-
   group_by(cluster) %>% 
   top_n(10, value)
 
-ggplot(top_word %>% filter(cluster == 2)) +
+ggplot(top_word %>% 
+         filter(cluster == 2)) +
+  geom_col(aes(x = reorder(word, desc(value)), y = value)) +
+  coord_flip() 
+
+ggplot(top_word %>% 
+         filter(cluster ==1)) +
+  geom_col(aes(x = reorder(word, desc(value)), y = value)) +
+  coord_flip() 
+
+ggplot(top_word %>% 
+         filter(cluster ==3)) +
+  geom_col(aes(x = reorder(word, desc(value)), y = value)) +
+  coord_flip() 
+
+ggplot(top_word %>% 
+         filter(cluster ==4)) +
   geom_col(aes(x = reorder(word, desc(value)), y = value)) +
   coord_flip() 
   #facet_wrap(~cluster)
@@ -426,7 +442,6 @@ ggplot(top_word %>% filter(cluster == 2)) +
 - Graphique des 4 clusters
 
 ```{r}
-
 
 ```
 

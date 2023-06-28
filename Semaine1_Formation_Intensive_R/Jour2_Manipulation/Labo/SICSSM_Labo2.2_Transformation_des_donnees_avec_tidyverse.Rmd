@@ -30,7 +30,8 @@ rm(list = ls())
     - command + Option + i (mac)
 - Pour exécuter une ligne de code, il faut se placer sur la ligne et faire 
     - command + Entree (mac)
-    
+
+
 ```{r}
 
 (nom_classe <- c("guillaume", "amy", "andree", "john", "natacha"))
@@ -104,10 +105,10 @@ base_classe$age3 <- base_classe$age^2
 class(base_classe$nom)        # factor
 class(base_classe$sexe)       # factor
 class(base_classe$sexe01)         # numeric
-class(base_classe$sexefactor)     # factor
+#class(base_classe$sexefactor)     # factor
 class(base_classe$revenu)         # numeric
 class(base_classe$age)            # numeric
-class(base_classe$education)      # numeric
+#class(base_classe$education)      # numeric
 
 ```
 
@@ -166,7 +167,7 @@ Maintenant, il faut charger les données que vous voulez utiliser dans R. Ici, o
 
 ```{r}
 
-crsc96 <- read_csv("../Données/cora-crsc1996-E-1996_F1.csv")
+crsc96 <- read_csv("/Volumes/Transcend/SICSS2023/Cours_SICSS_Montreal/Semaine1_Formation_Intensive_R/Jour2_Manipulation/Données/cora-crsc1996-E-1996_F1.csv")
 
 ```
 

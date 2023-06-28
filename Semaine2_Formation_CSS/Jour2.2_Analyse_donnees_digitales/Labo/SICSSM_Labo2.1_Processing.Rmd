@@ -56,7 +56,7 @@ https://cran.r-project.org/web/packages/stm/vignettes/stmVignette.pdf
 rm(list = ls())
 
 # Installer les différents packages
-install.packages("tm")
+#install.packages("tm")
 
 # Charger les packages
 
@@ -81,7 +81,7 @@ Pour transformer les textes en matrice documents-termes, nous aurons besoin des 
 
 ```{r}
 
- #load(url("https://cbail.github.io/Trump_Tweets.Rdata"))
+ load(url("https://cbail.github.io/Trump_Tweets.Rdata"))
 
 trumptweets <- readRDS("../Données/trumptweets.Rdata")
 head(trumptweets)

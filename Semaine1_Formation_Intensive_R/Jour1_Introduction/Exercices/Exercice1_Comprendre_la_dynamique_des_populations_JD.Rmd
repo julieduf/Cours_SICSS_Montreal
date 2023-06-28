@@ -39,9 +39,9 @@ Ce code vous permet de charger directement les données. Vous devez télécharge
 
 ## Telecharger les données
 
-Sweden <- read.csv("/Volumes/Transcend/SICSS2023/Sem1/Jour1/Sweden.csv")
-Kenya <- read.csv("/Volumes/Transcend/SICSS2023/Sem1/Jour1/Kenya.csv")
-World <- read.csv("/Volumes/Transcend/SICSS2023/Sem1/Jour1/World.csv")
+Sweden <- read.csv("/Volumes/Transcend/SICSS2023/Cours_SICSS_Montreal/Semaine1_Formation_Intensive_R/Jour1_Introduction/Données/Sweden.csv")
+Kenya <- read.csv("/Volumes/Transcend/SICSS2023/Cours_SICSS_Montreal/Semaine1_Formation_Intensive_R/Jour1_Introduction/Données/Kenya.csv")
+World <- read.csv("/Volumes/Transcend/SICSS2023/Cours_SICSS_Montreal/Semaine1_Formation_Intensive_R/Jour1_Introduction/Données/World.csv")
 
 ```
 
